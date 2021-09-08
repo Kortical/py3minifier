@@ -1,8 +1,8 @@
-:mod:`pyminifier.py` - The main module for minifying, obfuscating, and compressing Python code
+:mod:`py3minifier.py` - The main module for minifying, obfuscating, and compressing Python code
 ==============================================================================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier
+.. automodule:: py3minifier
     :members:
     :private-members:

@@ -1,8 +1,8 @@
 :mod:`analyze.py` - For analyzing Python code
 =============================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier.analyze
+.. automodule:: py3minifier.analyze
     :members:
     :private-members:

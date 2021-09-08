@@ -1,8 +1,8 @@
 :mod:`token_utils.py` - A collection of token-related functions
 ===============================================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier.token_utils
+.. automodule:: py3minifier.token_utils
     :members:
     :private-members:

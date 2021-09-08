@@ -1,7 +1,7 @@
 from optparse import OptionParser
 import sys
 
-from . import pyminify
+from . import py3minify
 from . import __version__
 
 py3 = False
@@ -17,11 +17,11 @@ if not isinstance(sys.version_info, tuple):
 def main():
     """
     Sets up our command line options, prints the usage/help (if warranted), and
-    runs :py:func:`pyminifier.pyminify` with the given command line options.
+    runs :py:func:`py3minifier.py3minify` with the given command line options.
     """
     usage = '%prog [options] "<input file>"'
-    if '__main__.py' in sys.argv[0]: # python -m pyminifier
-        usage = 'pyminifier [options] "<input file>"'
+    if '__main__.py' in sys.argv[0]: # python -m py3minifier
+        usage = 'py3minifier [options] "<input file>"'
     parser = OptionParser(usage=usage, version=__version__)
     parser.disable_interspersed_args()
     parser.add_option(
@@ -86,7 +86,7 @@ def main():
         help=("zip-compress the result into a self-executing python script. "
               "This will create a new file that includes any necessary implicit"
               " (local to the script) modules.  Will include/process all files "
-              "given as arguments to pyminifier.py on the command line."),
+              "given as arguments to py3minifier.py on the command line."),
         metavar="<name of archive>.pyz"
     )
     parser.add_option(
@@ -168,7 +168,7 @@ def main():
     if not files:
         parser.print_help()
         sys.exit(2)
-    pyminify(options, files)
+    py3minify(options, files)
 
 
 if __name__ == "__main__":

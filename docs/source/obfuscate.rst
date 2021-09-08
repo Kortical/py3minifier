@@ -1,8 +1,8 @@
 :mod:`obfuscate.py` - For obfuscating Python code
 =================================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier.obfuscate
+.. automodule:: py3minifier.obfuscate
     :members:
     :private-members:

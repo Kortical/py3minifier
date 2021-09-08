@@ -658,7 +658,7 @@ def obfuscate_global_import_methods(module, tokens, name_generator, table=None):
 def obfuscate(module, tokens, options, name_generator=None, table=None):
     """
     Obfuscates *tokens* in-place.  *options* is expected to be the options
-    variable passed through from pyminifier.py.
+    variable passed through from py3minifier.py.
 
     *module* must be the name of the module we're currently obfuscating
 

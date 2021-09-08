@@ -1,8 +1,8 @@
 :mod:`minification.py` - For minifying Python code
 ===================================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier.minification
+.. automodule:: py3minifier.minification
     :members:
     :private-members:
