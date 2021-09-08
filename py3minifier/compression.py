@@ -28,7 +28,7 @@ files.  To pack a number of files at once using this method use the
 
 .. code-block: shell
 
-    $ pyminifier --gzip --destdir=/tmp/minified *.py
+    $ py3minifier --gzip --destdir=/tmp/minified *.py
 
 **zip_pack format:**
 
@@ -159,7 +159,7 @@ def zip_pack(filepath, options):
     If being run inside Python 3 and the `lzma` module is available the
     resulting 'pyz' file will use ZIP_LZMA compression to maximize compression.
 
-    *options* is expected to be the the same options parsed from pyminifier.py
+    *options* is expected to be the the same options parsed from py3minifier.py
     on the command line.
 
     .. note::
@@ -262,8 +262,8 @@ def zip_pack(filepath, options):
         # Convert back to text
         result = token_utils.untokenize(tokens)
         result += (
-                "# Created by pyminifier "
-                "(https://github.com/liftoff/pyminifier)\n")
+                "# Created by py3minifier "
+                "(https://github.com/kortical/py3minifier)\n")
         # Write out to a temporary file to add to our zip
         temp = tempfile.NamedTemporaryFile(mode='w')
         temp.write(source)

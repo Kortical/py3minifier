@@ -1,23 +1,22 @@
-pyminifier
+py3minifier
 ==========
 
-Pyminifier is a Python code minifier, obfuscator, and compressor.
+Py3minifier is a Python 3 code minifier, obfuscator, and compressor. It is based on pyminifier found here: https://github.com/liftoff/pyminifier and has been adjusted to target python 3.
 
 .. note::
 
-    * For the latest, complete documentation: http://liftoff.github.io/pyminifier/
-    * For the latest code: https://github.com/liftoff/pyminifier
+    * For the latest code: https://github.com/Kortical/py3minifier
 
 Overview
 --------
-When you install pyminifier it should automatically add a 'pyminifier'
+When you install py3minifier it should automatically add a 'py3minifier'
 executable to your ``$PATH``.  This executable has a number of command line
 arguments:
 
 .. code-block:: sh
 
-    $ pyminifier --help
-    Usage: pyminifier [options] "<input file>"
+    $ py3minifier --help
+    Usage: py3minifier [options] "<input file>"
 
     Options:
     --version             show program's version number and exit
@@ -44,7 +43,7 @@ arguments:
                             script. This will create a new file that includes any
                             necessary implicit (local to the script) modules.
                             Will include/process all files given as arguments to
-                            pyminifier.py on the command line.
+                            py3minifier.py on the command line.
     -O, --obfuscate       Obfuscate all function/method names, variables, and
                             classes.  Default is to NOT obfuscate.
     --obfuscate-classes   Obfuscate class names.
@@ -119,14 +118,14 @@ following totally made-up Python script (saved to ``/tmp/tumult.py``)::
         f = Foo("epicaricacy", "perseverate")
         f.test("Codswallop")
 
-By default pyminifier will perform basic minification and print the resulting
+By default py3minifier will perform basic minification and print the resulting
 code to stdout:
 
 .. note:: The tumult.py script is 1358 bytes.  Remember that.
 
 .. code-block:: sh
 
-    $ pyminifier /tmp/tumult.py
+    $ py3minifier /tmp/tumult.py
     #!/usr/bin/env python
     try:
      import demiurgic
@@ -150,15 +149,15 @@ code to stdout:
      print("Forming...")
      f=Foo("epicaricacy","perseverate")
      f.test("Codswallop")
-    # Created by pyminifier.py
+    # Created by py3minifier.py
 
 This reduced the size of tumult.py from 1358 bytes to 640 bytes.  Not bad!
 
-Minifying by itself can reduce code size considerably but pyminifier can go
+Minifying by itself can reduce code size considerably but py3minifier can go
 further by obfuscating the code.  What that means is that it will replace the
 names of things like variables and functions to the smallest possible size.
 
-To see more examples of pyminifier in action (e.g. compression features) see the
+To see more examples of py3minifier in action (e.g. compression features) see the
 `full documentation <http://liftoff.github.io/pyminifier/>`_
 
 Special Sauce
@@ -196,7 +195,7 @@ need is Python 3 and the ``--nonlatin`` option...
      ࡅ("Forming...")
      녂=רּ("epicaricacy","perseverate")
      녂.𨠅("Codswallop")
-    # Created by pyminifier.py (https://github.com/liftoff/pyminifier)
+    # Created by py3minifier.py (https://github.com/kortical/py3minifier)
 
 Yes, that code actually works *but only using Python 3*.  This is because Python
 3 supports coding in languages that use non-latin character sets.

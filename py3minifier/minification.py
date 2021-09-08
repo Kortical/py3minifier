@@ -341,7 +341,7 @@ def fix_empty_methods(source):
     Example::
 
         # Note: This triple-single-quote inside a triple-double-quote is also a
-        # pyminifier self-test
+        # py3minifier self-test
         def myfunc():
             '''This is just a placeholder function.'''
 

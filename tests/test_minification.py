@@ -10,23 +10,23 @@ testdir = os.path.abspath(os.path.split(__file__)[0])
 maindir = os.path.dirname(testdir)
 
 
-class TestPyMinify(unittest.TestCase):
+class TestPy3Minify(unittest.TestCase):
     def setUp(self):
         self._testdir = tempfile.mkdtemp()
-        self.testdir = os.path.join(self._testdir, 'pyminifier')
+        self.testdir = os.path.join(self._testdir, 'py3minifier')
         os.mkdir(self.testdir)
-        self.sourcedir = os.path.join(maindir, 'pyminifier')
+        self.sourcedir = os.path.join(maindir, 'py3minifier')
 
     def minimy_file(self, inpath, cwd):
         proc = subprocess.Popen(
-            ['pyminifier', inpath], cwd=cwd, stdout=subprocess.PIPE)
+            ['py3minifier', inpath], cwd=cwd, stdout=subprocess.PIPE)
         data, err = proc.communicate()
         assert err is None
         return data
 
     def test_minify_self(self):
         """
-        Test if a minified version of 'pyminifier' returns the same results as
+        Test if a minified version of 'py3minifier' returns the same results as
         the original one
         """
         sourcefiles = [

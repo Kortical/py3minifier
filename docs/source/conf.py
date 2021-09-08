@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# pyminifier documentation build configuration file, created by
+# py3minifier documentation build configuration file, created by
 # sphinx-quickstart on Sat May 24 14:25:46 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -19,7 +19,7 @@ import os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('../../'))
-import pyminifier
+import py3minifier
 
 # -- General configuration ------------------------------------------------
 
@@ -49,15 +49,15 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pyminifier'
-copyright = u'2014, Dan McDougall'
+project = u'py3minifier'
+copyright = u'2021, Kortical'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = pyminifier.__version__
+version = py3minifier.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -186,7 +186,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'pyminifierdoc'
+htmlhelp_basename = 'py3minifierdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -206,8 +206,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'pyminifier.tex', u'pyminifier Documentation',
-   u'Dan McDougall', 'manual'),
+  ('index', 'py3minifier.tex', u'py3minifier Documentation',
+   u'Kortical', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -236,8 +236,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'pyminifier', u'pyminifier Documentation',
-     [u'Dan McDougall'], 1)
+    ('index', 'py3minifier', u'py3minifier Documentation',
+     [u'Kortical'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -250,8 +250,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'pyminifier', u'pyminifier Documentation',
-   u'Dan McDougall', 'pyminifier', 'One line description of project.',
+  ('index', 'py3minifier', u'py3minifier Documentation',
+   u'Kortical', 'py3minifier', 'One line description of project.',
    'Miscellaneous'),
 ]
 

@@ -1,8 +1,8 @@
 :mod:`compression.py` - For compressing Python code
 ===================================================
 
-.. moduleauthor:: Dan McDougall (daniel.mcdougall@liftoffsoftware.com)
+.. moduleauthor:: Kortical (support@kortical.com)
 
-.. automodule:: pyminifier.compression
+.. automodule:: py3minifier.compression
     :members:
     :private-members:

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-#       Copyright 2013 Liftoff Software Corporation
+#       Copyright 2021 Kortical
 #
 # For license information see LICENSE.txt
 
@@ -8,7 +8,7 @@
 __version__ = '2.2'
 __version_info__ = (2, 2)
 __license__ = "GPLv3" # See LICENSE.txt
-__author__ = 'Dan McDougall <daniel.mcdougall@liftoffsoftware.com>'
+__author__ = 'Kortical <support@kortical.com>'
 
 # TODO: Add the ability to mark variables, functions, classes, and methods for non-obfuscation.
 # TODO: Add the ability to selectively obfuscate identifiers inside strings (for metaprogramming stuff).
@@ -33,36 +33,36 @@ Performs the following:
     * Optionally, obfuscates the code using the shortest possible combination of letters and numbers for one or all of class names, function/method names, and variables. The options are ``--obfuscate`` or ``-O`` to obfuscate everything, ``--obfuscate-variables``, ``--obfuscate-functions``, and ``--obfuscate-classes`` to obfuscate things individually (say, if you wanted to keep your module usable by external programs).  *Added in version 2.0*
     * Optionally, a value may be specified via --replacement-length to set the minimum length of random strings that are used to replace identifier names when obfuscating.
     * Optionally, if using Python 3, you may specify ``--nonlatin`` to use funky unicode characters when obfuscating. WARNING: This will result in some seriously hard-to-read code! **Tip:** Combine this setting with higher ``--replacement-length`` values to make the output even wackier.  *Added in version 2.0*
-    * Pyminifier can now minify/obfuscate an arbitrary number of Python scripts in one go.  For example, ``pyminifier -O *.py`` will minify and obfuscate all files in the current directory ending in .py.  To prevent issues with using differentiated obfuscated identifiers across multiple files, pyminifier will keep track of what replaces what via a lookup table to ensure foo_module.whatever is gets the same replacement across all source files.  *Added in version 2.0*
-    * Optionally, creates an executable zip archive (pyz) containing the minified/obfuscated source script and all implicit (local path) imported modules.  This mechanism automatically figures out which source files to include in the .pyz archive by analyzing the script passed to pyminifier on the command line (listing all the modules your script uses is unnecessary).  This is also the **ultimate** in minification/compression besting both the gzip and bzip2 compression mechanisms with the disadvantage that .pyz files cannot be imported into other Python scripts.  *Added in version 2.0*
+    * Py3minifier can now minify/obfuscate an arbitrary number of Python scripts in one go.  For example, ``py3minifier -O *.py`` will minify and obfuscate all files in the current directory ending in .py.  To prevent issues with using differentiated obfuscated identifiers across multiple files, py3minifier will keep track of what replaces what via a lookup table to ensure foo_module.whatever is gets the same replacement across all source files.  *Added in version 2.0*
+    * Optionally, creates an executable zip archive (pyz) containing the minified/obfuscated source script and all implicit (local path) imported modules.  This mechanism automatically figures out which source files to include in the .pyz archive by analyzing the script passed to py3minifier on the command line (listing all the modules your script uses is unnecessary).  This is also the **ultimate** in minification/compression besting both the gzip and bzip2 compression mechanisms with the disadvantage that .pyz files cannot be imported into other Python scripts.  *Added in version 2.0*
 
-Just how much space can be saved by pyminifier?  Here's a comparison:
+Just how much space can be saved by py3minifier?  Here's a comparison:
 
-    * The pyminifier source (all six files) takes up about 164k.
-    * Performing basic minification on all pyminifier source files reduces that to ~104k.
+    * The py3minifier source (all six files) takes up about 164k.
+    * Performing basic minification on all py3minifier source files reduces that to ~104k.
     * Minification plus obfuscation provides a further reduction to 92k.
     * Minification plus the base64-encoded gzip trick (--gzip) reduces it to 76k.
     * Minification plus gzip compression plus obfuscation is also 76k (demonstrating that obfuscation makes no difference when compression algorthms are used).
-    * Using the --pyz option on pyminifier.py creates a ~14k .pyz file that includes all the aforementioned files.
+    * Using the --pyz option on py3minifier.py creates a ~14k .pyz file that includes all the aforementioned files.
 
-Various examples and edge cases are sprinkled throughout the pyminifier code so
+Various examples and edge cases are sprinkled throughout the py3minifier code so
 that it can be tested by minifying itself.  The way to test is thus:
 
 .. code-block:: bash
 
-    $ python __main__.py __main__.py > minified_pyminifier.py
-    $ python minified_pyminifier.py __main__.py > this_should_be_identical.py
-    $ diff minified_pyminifier.py this_should_be_identical.py
+    $ python __main__.py __main__.py > minified_py3minifier.py
+    $ python minified_py3minifier.py __main__.py > this_should_be_identical.py
+    $ diff minified_py3minifier.py this_should_be_identical.py
     $
 
-If you get an error executing minified_pyminifier.py or
-``this_should_be_identical.py`` isn't identical to minified_pyminifier.py then
+If you get an error executing minified_py3minifier.py or
+``this_should_be_identical.py`` isn't identical to minified_py3minifier.py then
 something is broken.
 
 .. note::
 
     The test functions below are meaningless.  They only serve as test/edge
-    cases for testing pyminifier.
+    cases for testing py3minifier.
 """
 
 # Import built-in modules
@@ -89,7 +89,7 @@ if not isinstance(sys.version_info, tuple):
 # Regexes
 multiline_indicator = re.compile('\\\\(\s*#.*)?\n')
 
-# The test.+() functions below are for testing pyminifier...
+# The test.+() functions below are for testing py3minifier...
 def test_decorator(f):
     """Decorator that does nothing"""
     return f
@@ -152,7 +152,7 @@ def is_iterable(obj):
         return False
     return isinstance(obj, Iterable)
 
-def pyminify(options, files):
+def py3minify(options, files):
     """
     Given an *options* object (from `optparse.OptionParser` or similar),
     performs minification and/or obfuscation on the given *files* (any iterable
@@ -250,8 +250,8 @@ def pyminify(options, files):
             elif lzma and options.lzma:
                 result = compression.lzma_pack(result)
             result += (
-                "# Created by pyminifier "
-                "(https://github.com/liftoff/pyminifier)\n")
+                "# Created by py3minifier "
+                "(https://github.com/kortical/py3minifier)\n")
             # Either save the result to the output file or print it to stdout
             if not os.path.exists(options.destdir):
                 os.mkdir(options.destdir)
@@ -305,8 +305,8 @@ def pyminify(options, files):
         elif lzma and options.lzma:
             result = compression.lzma_pack(result)
         result += (
-            "# Created by pyminifier "
-            "(https://github.com/liftoff/pyminifier)\n")
+            "# Created by py3minifier "
+            "(https://github.com/kortical/py3minifier)\n")
         # Either save the result to the output file or print it to stdout
         if options.outfile:
             f = io.open(options.outfile, 'w', encoding='utf-8')
